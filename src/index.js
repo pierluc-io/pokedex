@@ -4,6 +4,6 @@ import App from './App';
 import './index.css';
 
 ReactDOM.render(
-  <App />,
+  <App baseUrl="https://pokeapi.co/api/v2/pokemon/" />,
   document.getElementById('root')
 );
