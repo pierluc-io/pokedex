@@ -17,6 +17,10 @@ class SearchForm extends Component {
     this.setState({
       query: e.target.value
     });
+
+    if (e.target.value.length >= 3) {
+      this.props.onSearchSubmit(e.target.value);
+    }
   }
 
   handleSubmit(e) {
