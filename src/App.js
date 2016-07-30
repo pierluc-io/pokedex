@@ -8,16 +8,14 @@ class App extends Component {
     super(props)
 
     this.state = {
-      pokemon: {
-        name: '...'
-      }
+      pokemon: []
     };
 
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
   }
 
   handleSearchSubmit(query) {
-    fetch(`${this.props.baseUrl}${query}`, {
+    fetch(`${this.props.baseUrl}?name=${query}`, {
       cache: 'force-cache'
     }).then((response) => {
       if (response.status !== 200) {
@@ -49,7 +47,6 @@ class App extends Component {
           Hello, search for Pokémon!
         </p>
         <SearchForm onSearchSubmit={this.handleSearchSubmit} />
-        <h1>You have chosen {this.state.pokemon.name}!</h1>
         <pre>{JSON.stringify(this.state.pokemon, null, 2) }</pre>
       </div>
     );
