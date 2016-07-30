@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:6.3
 MAINTAINER Pier-Luc Gendreau <pierluc@outlook.com>
 
-RUN npm install --production && \
+RUN npm install && \
     npm install -g pushstate-server && \
     mkdir /srv/www
 
