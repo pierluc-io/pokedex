@@ -9,30 +9,29 @@ class SearchForm extends Component {
       query: ''
     }
 
+    this.inputDebounceTimeout = null
+
     this.handleQueryChange = this.handleQueryChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleQueryChange(e) {
     this.setState({
-      query: e.target.value
+      query: e.target.value.trim().toLowerCase()
     });
 
-    if (e.target.value.length >= 3) {
-      this.props.onSearchSubmit(e.target.value);
-    }
+    window.clearTimeout(this.inputDebounceTimeout)
+
+    this.inputDebounceTimeout = window.setTimeout(() => {
+      if (this.state.query.length >= 3) {
+        this.props.onSearchSubmit(this.state.query);
+      }
+    }, 500)
   }
 
-  handleSubmit(e) {
+  handleReset(e) {
     e.preventDefault();
 
-    const query = this.state.query.trim().toLowerCase();
-
-    if (!query) {
-      return;
-    }
-
-    this.props.onSearchSubmit(query);
     this.setState({
       query: ''
     });
@@ -40,14 +39,14 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <form className="searchForm" onSubmit={this.handleSubmit}>
+      <form className="searchForm" onReset={this.handleReset}>
         <input
           type="text"
           placeholder="Type a Pokémon's name!"
           value={this.state.query}
           onChange={this.handleQueryChange}
         />
-        <input type="submit" value="GO" />
+        <input type="reset" value="X" />
       </form>
     );
   }
