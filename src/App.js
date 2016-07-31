@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   handleSearchSubmit(query) {
-    fetch(`${this.props.baseUrl}/search/pokemon?query=${query}`, {
+    fetch(`${this.props.baseUrl}/search/pokemon?q=${query}`, {
       cache: 'force-cache'
     }).then((response) => {
       if (response.status !== 200) {
