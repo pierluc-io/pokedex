@@ -15,16 +15,28 @@ class App extends Component {
   }
 
   handleSearchSubmit(query) {
-    fetch(`${this.props.baseUrl}/search/pokemon?q=${query}`, {
-      cache: 'force-cache'
+    fetch(`${this.props.baseUrl}?api-version=2015-02-28&search=${query}*`, {
+      'Content-Type': 'application/json',
+      'api-key': 'A02F0B15D7E5E0C11FE6BA675B82C2D0'
     }).then((response) => {
       if (response.status !== 200) {
         throw new Error(response.status)
       }
 
       return response.json()
-    }).then((pokemon) => {
-      this.setState({ pokemon });
+    }).then((result) => {
+      this.setState({
+        pokemon: result.value.map((v) => {
+          return {
+            score: v['@search.score'],
+            id: v.id,
+            name: v.name,
+            types: JSON.parse(v.types),
+            resource: v.resource,
+            resource_id: v.resource_id
+          }
+        })
+      });
     }).catch((err) => {
       console.error(err)
 

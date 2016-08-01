@@ -4,6 +4,6 @@ import App from './App';
 import './index.css';
 
 ReactDOM.render(
-  <App baseUrl="https://api.pokedex.stream/v1" />,
+  <App baseUrl="https://pierluc-io.search.windows.net/indexes/poke-index/docs" />,
   document.getElementById('root')
 );
