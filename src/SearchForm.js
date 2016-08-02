@@ -13,6 +13,7 @@ class SearchForm extends Component {
 
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleQueryChange(e) {
@@ -37,16 +38,27 @@ class SearchForm extends Component {
     });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+  }
+
   render() {
     return (
-      <form className="searchForm" onReset={this.handleReset}>
-        <input
-          type="text"
-          placeholder="Type a Pokémon's name!"
-          value={this.state.query}
-          onChange={this.handleQueryChange}
-        />
-        <input type="reset" value="X" />
+      <form className="SearchForm" onReset={this.handleReset} onSubmit={this.handleSubmit}>
+        <div className="form-group">
+          <div className="input-group">
+            <input
+              className="form-control input-lg"
+              type="text"
+              placeholder="Type a Pokémon's name!"
+              value={this.state.query}
+              onChange={this.handleQueryChange}
+            />
+            <span className="input-group-btn">
+              <input className="btn btn-primary btn-block btn-lg" type="reset" value="X" />
+            </span>
+          </div>
+        </div>
       </form>
     );
   }

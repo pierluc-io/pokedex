@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm'
+import PokemonList from './PokemonList'
 import logo from './logo.svg';
 import './App.css';
 
@@ -46,13 +47,11 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Hello, search for Pokémon!</h2>
+          <h3><em>Feat. React, Azure DocumentDB & Azure Search</em></h3>
         </div>
-        <p className="App-intro">
-          Hello, search for Pokémon!
-        </p>
         <SearchForm onSearchSubmit={this.handleSearchSubmit} />
-        <pre>{JSON.stringify(this.state.pokemon, null, 2) }</pre>
+        <PokemonList items={this.state.pokemon} />
       </div>
     );
   }
