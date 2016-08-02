@@ -15,10 +15,12 @@ class App extends Component {
   }
 
   handleSearchSubmit(query) {
-    fetch(`${this.props.baseUrl}?api-version=2015-02-28&search=${query}*`, {
-      'Content-Type': 'application/json',
-      'api-key': 'A02F0B15D7E5E0C11FE6BA675B82C2D0'
-    }).then((response) => {
+    const headers = new Headers()
+
+    headers.set('Content-Type', 'application/json')
+    headers.set('api-key', '889DE740A62A3C34F75F7D17FE15DA20')
+
+    fetch(`${this.props.baseUrl}?api-version=2015-02-28&search=${query}*`, { headers }).then((response) => {
       if (response.status !== 200) {
         throw new Error(response.status)
       }
@@ -26,16 +28,7 @@ class App extends Component {
       return response.json()
     }).then((result) => {
       this.setState({
-        pokemon: result.value.map((v) => {
-          return {
-            score: v['@search.score'],
-            id: v.id,
-            name: v.name,
-            types: JSON.parse(v.types),
-            resource: v.resource,
-            resource_id: v.resource_id
-          }
-        })
+        pokemon: result.value
       });
     }).catch((err) => {
       console.error(err)

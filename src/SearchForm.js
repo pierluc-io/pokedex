@@ -26,7 +26,7 @@ class SearchForm extends Component {
       if (this.state.query.length >= 3) {
         this.props.onSearchSubmit(this.state.query);
       }
-    }, 500)
+    }, 350)
   }
 
   handleReset(e) {
