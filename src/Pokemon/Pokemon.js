@@ -13,7 +13,7 @@ class Pokemon extends Component {
       <li className="Pokemon media">
         <div className="media-left">
           <a href="#">
-            <img className="media-object" src={`http://pokeapi.co/media/sprites/pokemon/${this.props.item.resource_id}.png`} alt="{this.props.item.name}" width="96" height="96" />
+            <img className="media-object" src={`https://pokeapi.co/media/sprites/pokemon/${this.props.item.resource_id}.png`} alt="{this.props.item.name}" width="96" height="96" />
           </a>
         </div>
         <div className="media-body">

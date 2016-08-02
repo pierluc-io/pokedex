@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchForm from './SearchForm'
-import PokemonList from './PokemonList'
+import SearchForm from '../SearchForm'
+import PokemonList from '../PokemonList'
 import logo from './logo.svg';
 import './App.css';
 
