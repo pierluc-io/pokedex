@@ -4,9 +4,11 @@ import './PokemonList.css';
 
 class PokemonList extends Component {
   render() {
-    const createItem = function(item) {
+    const createItem = (item, types) => {
       return (
-        <Pokemon key={item.resource_id} item={item} />
+        <Pokemon key={item.resource_id} item={item} types={item.types.map((t) => {
+          return this.props.types[t]
+        })} />
       );
     };
 
