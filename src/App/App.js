@@ -76,10 +76,10 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Hello, search for Pokémon!</h2>
-          <h3><em>Feat. React, Azure DocumentDB & Azure Search</em></h3>
         </div>
         <SearchForm onSearchSubmit={this.handleSearchSubmit} />
         <PokemonList items={this.state.pokemon} types={this.state.pokemonTypes} />
+        <p><em>Feat. Azure DocumentDB, Azure Functions, Azure Search & React</em></p>
       </div>
     );
   }

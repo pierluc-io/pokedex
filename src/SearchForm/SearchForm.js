@@ -11,9 +11,19 @@ class SearchForm extends Component {
 
     this.inputDebounceTimeout = null
 
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.focusSearchInput = this.focusSearchInput.bind(this);
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.focusSearchInput()
+  }
+
+  focusSearchInput() {
+    this.refs.searchInput.focus()
   }
 
   handleQueryChange(e) {
@@ -36,6 +46,8 @@ class SearchForm extends Component {
     this.setState({
       query: ''
     });
+
+    this.focusSearchInput()
   }
 
   handleSubmit(e) {
@@ -50,9 +62,10 @@ class SearchForm extends Component {
             <input
               className="form-control input-lg"
               type="text"
-              placeholder="Type a Pokémon's name!"
+              placeholder="Type a Pokémon's name"
               value={this.state.query}
               onChange={this.handleQueryChange}
+              ref="searchInput"
             />
             <span className="input-group-btn">
               <input className="btn btn-primary btn-block btn-lg" type="reset" value="X" />
