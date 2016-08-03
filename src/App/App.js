@@ -75,7 +75,8 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Hello, search for Pokémon!</h2>
+          <h2>Instantly find Pokémon!</h2>
+          <hr />
         </div>
         <SearchForm onSearchSubmit={this.handleSearchSubmit} />
         <PokemonList items={this.state.pokemon} types={this.state.pokemonTypes} />

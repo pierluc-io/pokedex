@@ -95,9 +95,9 @@ class Pokemon extends Component {
       return (
         <tr key={index}>
           <td>{type.name}</td>
-          <td>{type.no_damage_to.join(' ')}</td>
-          <td>{type.half_damage_to.join(' ')}</td>
-          <td>{type.double_damage_to.join(' ')}</td>
+          <td>{type.no_damage_to.length > 0 ? type.no_damage_to.join(', ') : "-"}</td>
+          <td>{type.half_damage_to.length > 0 ? type.half_damage_to.join(', ') : "-"}</td>
+          <td>{type.double_damage_to.length > 0 ? type.double_damage_to.join(', ') : "-"}</td>
         </tr>
       );
     };
@@ -105,12 +105,12 @@ class Pokemon extends Component {
     const createTypeRelationRowFrom = (damageRelations) => {
       return (
         <tr key="damageRelations">
-          <td>{damageRelations.no_damage_from.join(' ')}</td>
-          <td>{damageRelations.quarter_damage_from.join(' ')}</td>
-          <td>{damageRelations.half_damage_from.join(' ')}</td>
-          <td>{damageRelations.full_damage_from.join(' ')}</td>
-          <td>{damageRelations.double_damage_from.join(' ')}</td>
-          <td>{damageRelations.quad_damage_from.join(' ')}</td>
+          <td>{damageRelations.no_damage_from.length > 0 ? damageRelations.no_damage_from.join(', ') : "-"}</td>
+          <td>{damageRelations.quarter_damage_from.length > 0 ? damageRelations.quarter_damage_from.join(', ') : "-"}</td>
+          <td>{damageRelations.half_damage_from.length > 0 ? damageRelations.half_damage_from.join(', ') : "-"}</td>
+          <td>{damageRelations.full_damage_from.length > 0 ? damageRelations.full_damage_from.join(', ') : "-"}</td>
+          <td>{damageRelations.double_damage_from.length > 0 ? damageRelations.double_damage_from.join(', ') : "-"}</td>
+          <td>{damageRelations.quad_damage_from.length > 0 ? damageRelations.quad_damage_from.join(', ') : "-"}</td>
         </tr>
       );
     };
@@ -123,11 +123,12 @@ class Pokemon extends Component {
         <div className="media-body">
           <h3 className="media-heading">{this.props.item.name}</h3>
           <div>{this.props.item.types.map(createItem)}</div>
-          <h4>Offense</h4>
+        </div>
+        <div className="table-responsive">
           <table className="table table-bordered">
             <thead>
               <tr>
-                <th></th>
+                <th>Attack</th>
                 <th>0</th>
                 <th>½</th>
                 <th>2</th>
@@ -137,7 +138,9 @@ class Pokemon extends Component {
               {this.props.types.map(createTypeRelationRowTo)}
             </tbody>
           </table>
-          <h4>Defense</h4>
+        </div>
+        <h4>Damage taken</h4>
+        <div className="table-responsive">
           <table className="table table-bordered">
             <thead>
               <tr>
