@@ -1,27 +1,43 @@
-Below you will find some information on how to perform common tasks.  
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/template/README.md).
+# [pokedex.stream](https://www.pokedex.stream/)
+
+This React app leverages the power of Azure DocumentDB, Azure Functions & Azure Search to allow you to instantly find any Pokémon's strengths and weaknesses!
 
 ## Sending Feedback
 
-We are always open to [your feedback](https://github.com/facebookincubator/create-react-app/issues).
+We are always open to [your feedback](https://github.com/pierluc-io/pokedex/issues).
 
 ## Folder Structure
 
 After creation, your project should look like this:
 
 ```
-my-app/
-  README.md
-  index.html
+pokedex/
+  Dockerfile
   favicon.ico
-  node_modules/
+  index.html
+  license
   package.json
+  readme.md
   src/
-    App.css
-    App.js
+    App/
+      App.css
+      App.js
+      index.js
+      logo.svg
+    Pokemon/
+      Pokemon.css
+      Pokemon.js
+      index.js
+    PokemonList/
+      PokemonList.css
+      PokemonList.js
+      index.js
+    SearchForm/
+      SearchForm.css
+      SearchForm.js
+      index.js
     index.css
     index.js
-    logo.svg
 ```
 
 For the project to build, **these files must exist with exact filenames**:
@@ -29,14 +45,6 @@ For the project to build, **these files must exist with exact filenames**:
 * `index.html` is the page template;
 * `favicon.ico` is the icon you see in the browser tab;
 * `src/index.js` is the JavaScript entry point.
-
-You can delete or rename the other files.
-
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.  
-You need to **put any JS and CSS files inside `src`**, or Webpack won’t see them.
-
-You can, however, create more top-level directories.  
-They will not be included in the production build so you can use them for things like documentation.
 
 >**Known Issue:**
 >
