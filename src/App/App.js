@@ -80,6 +80,8 @@ class App extends Component {
         <SearchForm onSearchSubmit={this.handleSearchSubmit} />
         <PokemonList items={this.state.pokemon} types={this.state.pokemonTypes} />
         <p><em>Feat. Azure DocumentDB, Azure Functions, Azure Search & React</em></p>
+        <p><em><a href="https://github.com/pierluc-io/pokedex">Code available on GitHub</a></em></p>
+        <p><small><em>MIT &copy; <a href="https://www.pierluc.io/">Pier-Luc Gendreau</a></em></small></p>
       </div>
     );
   }
