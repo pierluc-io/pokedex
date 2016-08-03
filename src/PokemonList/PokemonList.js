@@ -7,7 +7,9 @@ class PokemonList extends Component {
     const createItem = (item, types) => {
       return (
         <Pokemon key={item.resource_id} item={item} types={item.types.map((t) => {
-          return this.props.types[t]
+          return Object.assign(this.props.types[t], {
+            name: t
+          })
         })} />
       );
     };
