@@ -57,21 +57,15 @@ class SearchForm extends Component {
   render() {
     return (
       <form className="SearchForm" onReset={this.handleReset} onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <div className="input-group">
-            <input
-              className="form-control input-lg"
-              type="text"
-              placeholder="Type a Pokémon's name"
-              value={this.state.query}
-              onChange={this.handleQueryChange}
-              ref="searchInput"
-            />
-            <span className="input-group-btn">
-              <input className="btn btn-primary btn-block btn-lg" type="reset" value="X" />
-            </span>
-          </div>
-        </div>
+        <input
+          className="SearchFormInput"
+          type="text"
+          placeholder="Type a Pokémon's name"
+          value={this.state.query}
+          onChange={this.handleQueryChange}
+          ref="searchInput"
+        />
+        <input className="SearchFormResetButton" type="reset" value="&times;" />
       </form>
     );
   }

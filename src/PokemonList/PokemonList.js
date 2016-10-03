@@ -15,7 +15,7 @@ class PokemonList extends Component {
     };
 
     return (
-      <ul className="PokemonList media-list">{this.props.items.map(createItem)}</ul>
+      <div className="PokemonList">{this.props.items.map(createItem)}</div>
     );
   }
 }

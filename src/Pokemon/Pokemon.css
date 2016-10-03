@@ -1,3 +1,69 @@
 .Pokemon {
-  border-bottom: 1px solid #ccc;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  font-size: calc(1vw + 1vh);
+  margin-top: 1.5em;
+  padding-bottom: 1.5em
+}
+
+.Pokemon:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.Pokemon .PokemonImage {
+  flex-basis: 5em;
+  margin-right: 1em;
+}
+
+.Pokemon .PokemonContent {
+  flex-basis: auto;
+  flex-grow: 1;
+}
+
+.Pokemon .PokemonContent .PokemonName {
+  font-size: 1.75em;
+  font-weight: 300;
+  margin-bottom: 0.25em;
+  text-transform: capitalize;
+}
+
+.Pokemon .PokemonContent .PokemonType {
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.Pokemon .PokemonContent .PokemonDamageDone, .Pokemon .PokemonContent .PokemonDamageTaken {
+  font-size: 1.125em;
+  margin-bottom: 0.5em;
+}
+
+.Pokemon .PokemonContent .PokemonDamageDoneTable {
+  font-size: 1em;
+  margin-bottom: 1em;
+  width: 100%
+}
+
+.Pokemon .PokemonContent .PokemonDamageTakenTable {
+  font-size: 1em;
+  width: 100%
+}
+
+.Pokemon .PokemonContent .PokemonDamageDoneTable thead tr, .Pokemon .PokemonContent .PokemonDamageTakenTable thead tr {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.Pokemon .PokemonContent .PokemonDamageDoneTable tr, .Pokemon .PokemonContent .PokemonDamageTakenTable tr {
+  display: flex;
+}
+
+.Pokemon .PokemonContent .PokemonDamageDoneTable tr > *, .Pokemon .PokemonContent .PokemonDamageTakenTable tr > * {
+  flex-basis: 100%;
+}
+
+.Pokemon .PokemonContent .PokemonDamageDoneTable tr > *:not(:last-child), .Pokemon .PokemonContent .PokemonDamageTakenTable tr > *:not(:last-child) {
+  border-right: 1px solid #ddd;
+  margin-right: 1em;
 }

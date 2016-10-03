@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import Footer from '../Footer'
+import Header from '../Header'
 import SearchForm from '../SearchForm'
 import PokemonList from '../PokemonList'
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -73,16 +74,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Instantly find Pokémon!</h2>
-          <hr />
-        </div>
+        <Header />
         <SearchForm onSearchSubmit={this.handleSearchSubmit} />
         <PokemonList items={this.state.pokemon} types={this.state.pokemonTypes} />
-        <p><em>Feat. Azure DocumentDB, Azure Functions, Azure Search & React</em></p>
-        <p><em><a href="https://github.com/pierluc-io/pokedex">Code available on GitHub</a></em></p>
-        <p><small><em>MIT &copy; <a href="https://www.pierluc.io/">Pier-Luc Gendreau</a></em></small></p>
+        <Footer />
       </div>
     );
   }

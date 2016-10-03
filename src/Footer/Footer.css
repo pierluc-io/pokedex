@@ -1,0 +1,15 @@
+.Footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+}
+
+.Footer p {
+  font-size: 1em;
+  font-style: italic;
+  text-align: center;
+}
+
+.Footer p:not(:first-child) {
+  margin-top: 0.75em;
+}

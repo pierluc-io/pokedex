@@ -108,7 +108,6 @@ class Pokemon extends Component {
           <td>{damageRelations.no_damage_from.length > 0 ? damageRelations.no_damage_from.join(', ') : "-"}</td>
           <td>{damageRelations.quarter_damage_from.length > 0 ? damageRelations.quarter_damage_from.join(', ') : "-"}</td>
           <td>{damageRelations.half_damage_from.length > 0 ? damageRelations.half_damage_from.join(', ') : "-"}</td>
-          <td>{damageRelations.full_damage_from.length > 0 ? damageRelations.full_damage_from.join(', ') : "-"}</td>
           <td>{damageRelations.double_damage_from.length > 0 ? damageRelations.double_damage_from.join(', ') : "-"}</td>
           <td>{damageRelations.quad_damage_from.length > 0 ? damageRelations.quad_damage_from.join(', ') : "-"}</td>
         </tr>
@@ -116,40 +115,34 @@ class Pokemon extends Component {
     };
 
     return (
-      <li className="Pokemon media">
-        <div className="media-left">
-          <img className="media-object" src={`https://pokeapi.co/media/sprites/pokemon/${this.props.item.resource_id}.png`} alt="{this.props.item.name}" width="96" height="96" />
-        </div>
-        <div className="media-body">
-          <h3 className="media-heading">{this.props.item.name}</h3>
-          <div>{this.props.item.types.map(createItem)}</div>
-        </div>
-        <div className="table-responsive">
-          <table className="table table-bordered">
+      <div className="Pokemon">
+        {/*<img className="PokemonImage" src={`https://pokeapi.co/media/sprites/pokemon/${this.props.item.resource_id}.png`} alt="{this.props.item.name}" width="96" height="96" />*/}
+        <div className="PokemonContent">
+          <h3 className="PokemonName">{this.props.item.name}</h3>
+          <div className={`PokemonType ${this.props.item.types.join(' ')}`}>{this.props.item.types.map(createItem)}</div>
+          <h4 className="PokemonDamageDone">Damage done</h4>
+          <table className="PokemonDamageDoneTable">
             <thead>
               <tr>
-                <th>Attack</th>
-                <th>0</th>
-                <th>½</th>
-                <th>2</th>
+                <th></th>
+                <th>0x</th>
+                <th>0.5x</th>
+                <th>2x</th>
               </tr>
             </thead>
             <tbody>
               {this.props.types.map(createTypeRelationRowTo)}
             </tbody>
           </table>
-        </div>
-        <h4>Damage taken</h4>
-        <div className="table-responsive">
-          <table className="table table-bordered">
+          <h4 className="PokemonDamageTaken">Damage taken</h4>
+          <table className="PokemonDamageTakenTable">
             <thead>
               <tr>
-                <th>0</th>
-                <th>¼</th>
-                <th>½</th>
-                <th>1</th>
-                <th>2</th>
-                <th>4</th>
+                <th>0x</th>
+                <th>0.25x</th>
+                <th>0.5x</th>
+                <th>2x</th>
+                <th>4x</th>
               </tr>
             </thead>
             <tbody>
@@ -157,7 +150,7 @@ class Pokemon extends Component {
             </tbody>
           </table>
         </div>
-      </li>
+      </div>
     );
   }
 }

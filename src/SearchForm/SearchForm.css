@@ -1,3 +1,33 @@
 .SearchForm {
-  text-align: center;
+  display: flex;
+  position: relative;
+}
+
+.SearchForm .SearchFormInput {
+  flex-basis: 100%;
+  flex-grow: 1;
+  font-size: calc(1.5vw + 1.5vh);
+  font-weight: 100;
+  padding: 0.25em 1em 0.25em 0.25em;
+}
+
+.SearchForm .SearchFormResetButton {
+  flex-basis: auto;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  color: #ddd;
+  font-size: calc(1.5vw + 1.5vh);
+  font-weight: 100;
+  padding: 0 0 1.15em 0.05em;
+  width: 1.25em;
+  height: 1.25em;
+  position: absolute;
+  top: 16%;
+  right: 0.25em;
+}
+
+.SearchForm .SearchFormResetButton:hover {
+  border: 1px solid #aaa;
+  color: #aaa;
 }
