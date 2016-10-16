@@ -28,6 +28,12 @@
   text-transform: capitalize;
 }
 
+.Pokemon .PokemonContent .PokemonName a {
+  font-size: 0.625em;
+  margin-left: 0.5em;
+  text-decoration: underline;
+}
+
 .Pokemon .PokemonContent .PokemonType {
   font-size: 1.25em;
   margin-bottom: 0.5em;

@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './Pokemon.css';
 
 class Pokemon extends Component {
+  constructor(props) {
+    super(props)
+
+    this.onPinClicked = this.onPinClicked.bind(this)
+  }
+
   damageRelations(types) {
     const damageRelations = {
       no_damage_from: [],
@@ -84,6 +90,10 @@ class Pokemon extends Component {
     return damageRelations
   }
 
+  onPinClicked() {
+    this.props.onPin(this.props.item)
+  }
+
   render() {
     const createItem = (item) => {
       return ( 
@@ -118,7 +128,10 @@ class Pokemon extends Component {
       <div className="Pokemon">
         {/*<img className="PokemonImage" src={`https://pokeapi.co/media/sprites/pokemon/${this.props.item.resource_id}.png`} alt="{this.props.item.name}" width="96" height="96" />*/}
         <div className="PokemonContent">
-          <h3 className="PokemonName">{this.props.item.name}</h3>
+          <h3 className="PokemonName">
+            <span>{this.props.item.name}</span>
+            <a onClick={this.onPinClicked}>{this.props.isPinned ? 'Unpin' : 'Pin'}</a>
+          </h3>
           <div className={`PokemonType ${this.props.item.types.join(' ')}`}>{this.props.item.types.map(createItem)}</div>
           <h4 className="PokemonDamageDone">Damage done</h4>
           <table className="PokemonDamageDoneTable">
@@ -153,6 +166,12 @@ class Pokemon extends Component {
       </div>
     );
   }
+}
+
+Pokemon.propTypes = {
+  item: PropTypes.object.isRequired,
+  isPinned: PropTypes.bool.isRequired,
+  onPin: PropTypes.func.isRequired
 }
 
 export default Pokemon;

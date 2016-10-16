@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../Footer'
 import Header from '../Header'
 import SearchForm from '../SearchForm'
+import PinList from '../PinList'
 import PokemonList from '../PokemonList'
 import './App.css';
 
@@ -10,12 +11,14 @@ class App extends Component {
     super(props)
 
     this.state = {
+      pin: [],
       pokemon: []
     };
 
     this.getHeaders = this.getHeaders.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    this.onPin = this.onPin.bind(this);
   }
 
   getHeaders() {
@@ -71,12 +74,23 @@ class App extends Component {
     })
   }
 
+  onPin(item) {
+    const pin = this.state.pin.filter((p) => p.resource_id !== item.resource_id)
+
+    if (pin.length === this.state.pin.length) {
+      pin.push(item)
+    }
+
+    this.setState({ pin })
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <SearchForm onSearchSubmit={this.handleSearchSubmit} />
-        <PokemonList items={this.state.pokemon} types={this.state.pokemonTypes} />
+        <PinList items={this.state.pin} />
+        <PokemonList items={this.state.pokemon} pinnedItems={this.state.pin} onPin={this.onPin} types={this.state.pokemonTypes} />
         <Footer />
       </div>
     );
