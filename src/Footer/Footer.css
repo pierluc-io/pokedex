@@ -4,12 +4,12 @@
   margin-top: 3em;
 }
 
-.Footer p {
-  font-size: 1em;
-  font-style: italic;
+.Footer a {
+  color: #777;
+  font-size: 0.75em;
   text-align: center;
 }
 
-.Footer p:not(:first-child) {
-  margin-top: 0.75em;
+.Footer p a:visited {
+  color: #777;
 }
