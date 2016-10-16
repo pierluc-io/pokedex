@@ -60,7 +60,6 @@ class SearchForm extends Component {
         <input
           className="SearchFormInput"
           type="text"
-          placeholder="Type a Pokémon's name"
           value={this.state.query}
           onChange={this.handleQueryChange}
           ref="searchInput"
