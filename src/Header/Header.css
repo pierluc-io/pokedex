@@ -1,7 +1,6 @@
 .Header {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 3em;
+  text-align: center;
 }
 
 .Header .HeaderLogo {
@@ -11,7 +10,6 @@
 
 .Header .HeaderTitle {
   font-size: calc(2.5vw + 2.5vh);
-  text-align: center;
   line-height: 1.2;
 }
 
